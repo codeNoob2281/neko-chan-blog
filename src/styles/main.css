@@ -165,3 +165,47 @@ pre[data-lang]::before {
   line-height: 1.6;
   font-family: "JetBrains Mono", Consolas, monospace;
 }
+
+/* 代码块复制按钮（客户端增强） */
+.code-block { position: relative; }
+.code-block pre { padding-top: 40px; }
+.copy-btn {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  cursor: pointer;
+  color: #ffb3d4;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 158, 199, 0.35);
+  border-radius: 8px;
+  opacity: 0.75;
+  transition: all .2s;
+}
+.copy-btn:hover { opacity: 1; background: rgba(255, 255, 255, 0.16); }
+.copy-btn:focus-visible { outline: 2px solid #ff9ec7; outline-offset: 1px; }
+.copy-btn.copied { color: #7ee2a8; border-color: rgba(126, 226, 168, 0.5); opacity: 1; }
+.copy-btn svg { display: block; }
+
+/* 提示气泡：成功 / 失败 */
+.copy-btn.copied::after,
+.copy-btn.failed::after {
+  content: '代码已复制到剪切板';
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  padding: 5px 12px;
+  font-size: 12px;
+  white-space: nowrap;
+  color: #ffd6e8;
+  background: #2d2438;
+  border: 1px solid rgba(255, 158, 199, 0.35);
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+.copy-btn.failed::after { content: '复制失败，请手动选择'; }
