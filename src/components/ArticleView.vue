@@ -1,10 +1,16 @@
 <script setup>
+import { computed } from 'vue'
+import { marked } from 'marked'
 import { articles } from '../data/articles.js'
+import { getBody } from '../data/loadBodies.js'
 import BlogFooter from './BlogFooter.vue'
 
-// 文章页：按 slug 取数据渲染
+// 文章页：按 slug 取元数据 + Markdown 正文，前端渲染
 const props = defineProps({ slug: { type: String, required: true } })
 const article = articles.find((a) => a.slug === props.slug)
+const renderedBody = computed(() =>
+  article ? marked.parse(getBody(props.slug)) : ''
+)
 </script>
 
 <template>
@@ -13,7 +19,7 @@ const article = articles.find((a) => a.slug === props.slug)
       <a class="back-home" href="/blog/">← 回博客列表</a>
       <h1>{{ article.title }}</h1>
       <div class="meta">{{ article.date }} · {{ article.category }} · Neko-chan</div>
-      <div v-html="article.body"></div>
+      <div v-html="renderedBody"></div>
     </div>
     <BlogFooter />
   </div>
