@@ -1,0 +1,143 @@
+/* 全局样式：从原静态博客的样式原样迁移，视觉保持一致 */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #ffe6f0 0%, #e6f0ff 50%, #f0e6ff 100%);
+  min-height: 100vh;
+  color: #4a3b52;
+  padding: 40px 20px;
+}
+.container { max-width: 720px; margin: 0 auto; }
+.container--wide { max-width: 760px; }
+
+/* 列表页头部 */
+.blog-header { text-align: center; margin-bottom: 32px; }
+.blog-header .avatar { font-size: 56px; line-height: 1; }
+.blog-header h1 { font-size: 30px; color: #d1568f; margin: 10px 0 6px; }
+.blog-header p { color: #9a7fb0; font-size: 14.5px; }
+
+/* 返回按钮 */
+.back-home {
+  display: inline-block;
+  margin-top: 14px;
+  color: #b0489e;
+  text-decoration: none;
+  font-size: 14px;
+  border: 1px solid #ff9ec7;
+  border-radius: 999px;
+  padding: 5px 18px;
+  background: rgba(255, 255, 255, 0.7);
+  transition: all .2s;
+}
+.back-home:hover { background: #ffd6e8; }
+.post .back-home { margin-top: 0; margin-bottom: 24px; }
+
+/* 搜索 */
+.search-box { margin-bottom: 24px; }
+.search-box input {
+  width: 100%;
+  padding: 13px 24px;
+  font-size: 15px;
+  border: 2px solid rgba(255, 182, 213, 0.8);
+  border-radius: 999px;
+  outline: none;
+  background: rgba(255, 255, 255, 0.92);
+  color: #4a3b52;
+  transition: border-color .2s, box-shadow .2s;
+}
+.search-box input:focus {
+  border-color: #ff9ec7;
+  box-shadow: 0 4px 16px rgba(255, 158, 199, 0.35);
+}
+.no-result {
+  text-align: center;
+  color: #b09cc0;
+  font-size: 14.5px;
+  padding: 30px 0;
+}
+
+/* 文章卡片 */
+.post-card {
+  display: block;
+  background: rgba(255, 255, 255, 0.88);
+  border: 2px solid rgba(255, 182, 213, 0.6);
+  border-radius: 18px;
+  padding: 26px 30px;
+  margin-bottom: 20px;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 6px 24px rgba(180, 130, 200, 0.15);
+  transition: transform .2s, box-shadow .2s;
+}
+.post-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(180, 130, 200, 0.28);
+  border-color: #ff9ec7;
+}
+.post-card h2 { font-size: 20px; color: #b0489e; margin-bottom: 8px; }
+.post-card .meta {
+  font-size: 13px;
+  color: #b09cc0;
+  margin-bottom: 10px;
+  font-variant-numeric: tabular-nums;
+}
+.post-card .excerpt { font-size: 14.5px; line-height: 1.75; color: #6a5570; }
+.post-card .read-more {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 13.5px;
+  color: #d1568f;
+  font-weight: 600;
+}
+
+/* 文章页 */
+.post {
+  background: rgba(255, 255, 255, 0.88);
+  border: 2px solid rgba(255, 182, 213, 0.6);
+  border-radius: 20px;
+  padding: 44px 46px;
+  box-shadow: 0 8px 30px rgba(180, 130, 200, 0.18);
+}
+h1 { font-size: 28px; color: #d1568f; margin-bottom: 8px; }
+.meta { font-size: 13.5px; color: #b09cc0; margin-bottom: 28px; }
+h2 { font-size: 19px; color: #b0489e; margin: 26px 0 12px; }
+p { line-height: 1.9; font-size: 15.5px; margin-bottom: 14px; }
+blockquote {
+  border-left: 4px solid #ff9ec7;
+  background: #fff0f7;
+  padding: 12px 18px;
+  margin: 16px 0;
+  border-radius: 0 10px 10px 0;
+  color: #8a4f6e;
+  font-size: 15px;
+}
+pre {
+  background: #2d2438;
+  color: #f5e8f5;
+  border-radius: 12px;
+  padding: 16px 20px;
+  overflow-x: auto;
+  margin: 14px 0;
+  font-size: 14px;
+  line-height: 1.7;
+}
+code {
+  background: #f5e8f5;
+  border-radius: 6px;
+  padding: 2px 8px;
+  font-size: 14px;
+  color: #a0489e;
+  font-family: "JetBrains Mono", Consolas, monospace;
+}
+pre code { background: none; color: inherit; padding: 0; }
+
+/* 页脚 */
+.footer {
+  text-align: center;
+  font-size: 13px;
+  color: #b09cc0;
+  margin-top: 36px;
+  border-top: 1px dashed #e8c8e0;
+  padding-top: 18px;
+}
+.container--wide .footer { margin-top: 40px; }
