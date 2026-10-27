@@ -1,4 +1,5 @@
 /* 全局样式：从原静态博客的样式原样迁移，视觉保持一致 */
+@import 'highlight.js/styles/atom-one-dark.css';
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
   font-family: "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
@@ -141,3 +142,26 @@ pre code { background: none; color: inherit; padding: 0; }
   padding-top: 18px;
 }
 .container--wide .footer { margin-top: 40px; }
+
+/* 语法高亮主题适配：背景交给 pre，token 颜色保留 */
+.hljs { background: transparent; padding: 0; }
+
+/* 代码块语言角标：左上角、大写（如 JS / BASH / JAVA） */
+pre[data-lang] { position: relative; padding-top: 40px; }
+pre[data-lang]::before {
+  content: attr(data-lang);
+  position: absolute;
+  top: 10px;
+  left: 16px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #ff9ec7;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 158, 199, 0.35);
+  border-radius: 999px;
+  padding: 2px 12px;
+  line-height: 1.6;
+  font-family: "JetBrains Mono", Consolas, monospace;
+}
