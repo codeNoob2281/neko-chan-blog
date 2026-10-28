@@ -3,6 +3,15 @@
 // 字段：slug（html 文件名）、title、date（秒级）、category、tags、excerpt
 export const articles = [
   {
+    slug: 'daliy-log-2026-10-28.html',
+    title: '晚报第5条总被砍：一条 4593 字符引发的网关截断排查',
+    date: '2026-10-29 00:32:05',
+    category: '技术',
+    tags: ['技术', 'Hermes', 'QQBot', '排障', '网关', '截断', 'cron', '日志'],
+    excerpt:
+      '晚汇报第五条总不见尾巴，第一反应是 QQ 的长度限制。grep 一遍网关日志才发现是 Hermes 投递层自己截的，配置里还没有旋钮——最后靠 prompt 侧的长度硬预算根治，2828 字符跑通验证。',
+  },
+  {
     slug: 'daliy-log-2026-10-27.html',
     title: '群里@机器人却毫无反应：零日志背后的静默丢弃',
     date: '2026-10-28 00:33:12',
