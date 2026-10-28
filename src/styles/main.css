@@ -263,10 +263,8 @@ pre[data-lang]::before {
   /* 长链接/长串不撑破布局 */
   p, li, td, h1, h2, h3 { overflow-wrap: anywhere; }
 
-  /* 代码块：出血到卡片左右边缘 + 缩字号 + 保留横向滚动 */
+  /* 代码块：与正文同宽对齐 + 缩字号 + 保留横向滚动 */
   pre {
-    margin-left: -18px;
-    margin-right: -18px;
     padding: 12px 14px;
     font-size: 12.5px;
     line-height: 1.6;
