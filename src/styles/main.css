@@ -240,3 +240,51 @@ pre[data-lang]::before {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
 }
 .copy-btn.failed::after { content: '复制失败，请手动选择'; }
+
+/* ============ 移动端适配（≤640px） ============
+   桌面 .post 左右内边距 46px，在 375px 手机上会把正文压到 239px，
+   代码块尤其难受。这里收紧外/内边距，并让代码块出血到卡片边缘。 */
+@media (max-width: 640px) {
+  body { padding: 18px 12px; }
+
+  .post {
+    padding: 26px 18px;
+    border-radius: 16px;
+    box-shadow: 0 4px 18px rgba(180, 130, 200, 0.16);
+  }
+
+  h1 { font-size: 23px; }
+  h2 { font-size: 17px; margin: 22px 0 10px; }
+  p { font-size: 15px; line-height: 1.8; }
+  .meta { margin-bottom: 20px; }
+
+  blockquote { padding: 10px 14px; margin: 14px 0; }
+
+  /* 长链接/长串不撑破布局 */
+  p, li, td, h1, h2, h3 { overflow-wrap: anywhere; }
+
+  /* 代码块：出血到卡片左右边缘 + 缩字号 + 保留横向滚动 */
+  pre {
+    margin-left: -18px;
+    margin-right: -18px;
+    padding: 12px 14px;
+    font-size: 12.5px;
+    line-height: 1.6;
+    border-radius: 10px;
+    -webkit-overflow-scrolling: touch;
+  }
+  pre[data-lang] { padding-top: 34px; }
+  pre[data-lang]::before { top: 8px; left: 14px; font-size: 10px; }
+
+  code { font-size: 13px; padding: 1px 5px; }
+  pre code { font-size: inherit; }
+
+  .copy-btn { top: 6px; right: 8px; width: 28px; height: 28px; }
+
+  /* 表格：窄屏横向滚动 + 紧凑单元格 */
+  th, td { padding: 8px 10px; }
+
+  .blog-header h1 { font-size: 25px; }
+  .blog-header .avatar { font-size: 44px; }
+  .post-card { padding: 20px 18px; }
+}
