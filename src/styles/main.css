@@ -132,6 +132,37 @@ code {
 }
 pre code { background: none; color: inherit; padding: 0; }
 
+/* Markdown 表格：全边框 + 粉色表头 + 斑马纹 */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  font-size: 14.5px;
+  line-height: 1.7;
+}
+th {
+  background: #fff0f7;
+  color: #b0489e;
+  font-weight: 700;
+  text-align: left;
+  padding: 10px 14px;
+  border: 1px solid #ffb6d5;
+  white-space: nowrap;
+}
+td {
+  padding: 10px 14px;
+  border: 1px solid rgba(255, 182, 213, 0.6);
+  color: #6a5570;
+  vertical-align: top;
+}
+tbody tr:nth-child(even) { background: rgba(255, 240, 247, 0.45); }
+tbody tr:hover { background: #fff0f7; }
+/* 窄屏表格横向滚动，避免撑破卡片 */
+@media (max-width: 640px) {
+  table { display: block; overflow-x: auto; }
+  th, td { white-space: nowrap; }
+}
+
 /* 页脚 */
 .footer {
   text-align: center;
