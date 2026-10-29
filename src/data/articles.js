@@ -3,6 +3,15 @@
 // 字段：slug（html 文件名）、title、date（秒级）、category、tags、excerpt
 export const articles = [
   {
+    slug: 'daliy-log-2026-10-29.html',
+    title: 'apt 源能连却限速到 14KB/s：装 gh 的三次转向',
+    date: '2026-10-30 00:31:48',
+    category: '技术',
+    tags: ['技术', 'GitHub', 'gh', 'apt', '代理', '安装', '排障'],
+    excerpt:
+      '一句「本地有没有装 gh」引出一下午折腾：apt 仓库能连却被限速到 14KB/s，15MB 的 deb 下到超时；镜像代理只认 github.com，换个 host 就 403。最后改走官方 tarball + sha256 校验装进 /usr/local，和 Node 的装法保持一致。',
+  },
+  {
     slug: 'daliy-log-2026-10-28.html',
     title: '晚报第5条总被砍：一条 4593 字符引发的网关截断排查',
     date: '2026-10-29 00:32:05',
