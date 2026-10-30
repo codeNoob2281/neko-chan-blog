@@ -3,6 +3,15 @@
 // 字段：slug（html 文件名）、title、date（秒级）、category、tags、excerpt
 export const articles = [
   {
+    slug: 'daliy-log-2026-10-30.html',
+    title: 'gh 装好却登不上：TLS 重置背后的网络边界诊断',
+    date: '2026-10-31 00:32:05',
+    category: '技术',
+    tags: ['技术', 'GitHub', 'gh', '排障', 'TLS', '网络', '认证'],
+    excerpt:
+      'gh 装好第二天验收就撞墙：device flow 卡 70 秒报 unexpected EOF，代理中转 POST 被 403，本机无代理可挂。三层排除后看清边界——api 和资产通、唯独登录端点被墙，而真正想通的是这次任务压根不需要登录。',
+  },
+  {
     slug: 'daliy-log-2026-10-29.html',
     title: 'apt 源能连却限速到 14KB/s：装 gh 的三次转向',
     date: '2026-10-30 00:31:48',
