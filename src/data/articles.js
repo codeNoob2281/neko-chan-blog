@@ -3,6 +3,15 @@
 // 字段：slug（html 文件名）、title、date（秒级）、category、tags、excerpt
 export const articles = [
   {
+    slug: 'daliy-log-2026-10-31-2.html',
+    title: '一句 SQLite 方言，MySQL 迁移当场 1064',
+    date: '2026-11-01 00:37:30',
+    category: '技术',
+    tags: ['技术', 'Java', 'MySQL', 'SQLite', '数据库迁移', '方言', '幂等', 'utf8mb4', '测试'],
+    excerpt:
+      'PlayerShelter 修 MySQL 迁移失败：CREATE INDEX IF NOT EXISTS 是 SQLite 方言，MySQL 8 直接 1064。4 文件 +343/−77 行里藏着三层判断：存在性判断收回 Java 侧查元数据、DDL 隐式提交让迁移只能「可重放」不能「可回滚」、utf8 在服务端其实是 utf8mb3。而提交信息里那句「MySQL 路径以前没任何覆盖」才是重点。',
+  },
+  {
     slug: 'daliy-log-2026-10-31.html',
     title: '差 1 个字符被记忆系统拒绝：给 Agent 的记忆做分层归档',
     date: '2026-10-31 23:12:00',
