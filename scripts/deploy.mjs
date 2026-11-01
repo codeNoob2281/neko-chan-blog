@@ -12,3 +12,8 @@ for (const f of await readdir(target)) {
 }
 await cp(join(root, 'dist'), target, { recursive: true })
 console.log('deployed to', target)
+
+// 主题变量同步到站点根目录：小窝主页（/，手写静态页）通过 /theme-tokens.css 引用同一份，
+// 保证主页和博客的深浅色配色永远一致（同源共享 localStorage，选择也互通）
+await cp(join(root, 'src/styles/theme-tokens.css'), '/var/www/html/theme-tokens.css')
+console.log('theme tokens -> /var/www/html/theme-tokens.css')

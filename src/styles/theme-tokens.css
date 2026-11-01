@@ -1,0 +1,140 @@
+/* ============ 主题变量（全站共享） ============
+   浅色为默认值（:root），深色在 html[data-theme="dark"] 上整组覆盖。
+   data-theme 由页面头部的内联脚本在 CSS 绘制前写入（存储值 > 系统偏好），避免主题闪烁。
+
+   使用方：
+   - 博客（/blog/）：由 src/styles/main.css 通过 @import 打入 Vite 产物
+   - 小窝主页（/）：由 deploy.mjs 部署时复制到站点根目录，index.html 直接 <link> 引用
+   两边同源共享 localStorage（key: neko-theme），主题选择全站同步。
+   改颜色只动这里，组件规则一律走 var()。 */
+:root {
+  color-scheme: light;
+
+  /* 背景 */
+  --bg-gradient: linear-gradient(135deg, #ffe6f0 0%, #e6f0ff 50%, #f0e6ff 100%);
+
+  /* 卡片 */
+  --card-bg: rgba(255, 255, 255, 0.92);
+  --card-border: rgba(255, 182, 213, 0.55);
+  --card-shadow: 0 4px 18px rgba(180, 130, 200, 0.12);
+  --card-shadow-sm: 0 4px 18px rgba(180, 130, 200, 0.16);
+  --card-shadow-hover: 0 14px 34px rgba(180, 130, 200, 0.22);
+  --card-hover-border: #ff9ec7;
+
+  /* 文字 */
+  --text: #4a3b52;
+  --text-body: #6a5570;
+  --text-title: #b0489e;
+  --text-title-hover: #d1568f;
+  --text-muted: #b09cc0;
+  --text-faint: #9a7fb0;
+
+  /* 强调色 */
+  --accent: #d1568f;
+  --accent-strong: #b0489e;
+  --accent-line: #ff9ec7; /* 亮粉描边，深浅底都清晰 */
+  --accent-soft: rgba(255, 240, 247, 0.9);
+  --accent-softer: rgba(255, 240, 247, 0.45);
+  --accent-hover-bg: #ffd6e8;
+  --accent-border: rgba(255, 182, 213, 0.45);
+  --accent-border-strong: rgba(255, 182, 213, 0.8);
+  --divider: rgba(255, 182, 213, 0.5);
+  --footer-divider: #e8c8e0;
+
+  /* 按钮 / 搜索框 */
+  --btn-bg: rgba(255, 255, 255, 0.7);
+  --input-bg: rgba(255, 255, 255, 0.92);
+  --input-border: rgba(255, 182, 213, 0.8);
+  --input-focus-shadow: 0 4px 16px rgba(255, 158, 199, 0.35);
+
+  /* 引用 / 代码 */
+  --quote-bg: #fff0f7;
+  --quote-text: #8a4f6e;
+  --code-bg: #f5e8f5;
+  --code-text: #a0489e;
+  --pre-bg: #2d2438;
+  --pre-text: #f5e8f5;
+
+  /* 表格 */
+  --th-bg: #fff0f7;
+  --th-text: #b0489e;
+  --td-border: rgba(255, 182, 213, 0.6);
+  --td-text: #6a5570;
+  --row-even: rgba(255, 240, 247, 0.45);
+  --row-hover: #fff0f7;
+
+  /* 标签 chips */
+  --chip-bg: rgba(255, 240, 247, 0.9);
+  --chip-text: #a56fb8;
+  --chip-border: rgba(255, 182, 213, 0.45);
+
+  /* 分类徽章（技术 / 随笔 / 日常 / 默认） */
+  --pill-tech: #c2478a;    --pill-tech-bg: #ffe0ee;    --pill-tech-border: #ffb6d5;
+  --pill-essay: #7c5cc7;   --pill-essay-bg: #efe8ff;   --pill-essay-border: #d5c2f5;
+  --pill-daily: #3e9e8f;   --pill-daily-bg: #ddf5f0;   --pill-daily-border: #a8e0d4;
+  --pill-default: #b0489e; --pill-default-bg: #fff0f7; --pill-default-border: #ffb6d5;
+
+  /* 主题切换按钮 */
+  --toggle-bg: rgba(255, 255, 255, 0.7);
+}
+
+/* 深色主题：深紫底 + 亮粉强调；代码块本来就是暗色 hljs 主题，两块都不用动 */
+html[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg-gradient: linear-gradient(135deg, #181120 0%, #131019 50%, #1d1526 100%);
+
+  --card-bg: rgba(46, 37, 59, 0.9);
+  --card-border: rgba(200, 150, 210, 0.3);
+  --card-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+  --card-shadow-sm: 0 4px 18px rgba(0, 0, 0, 0.3);
+  --card-shadow-hover: 0 14px 34px rgba(0, 0, 0, 0.5);
+  --card-hover-border: rgba(255, 158, 199, 0.55);
+
+  --text: #e7dff0;
+  --text-body: #c5b7d3;
+  --text-title: #ff9ec7;
+  --text-title-hover: #ffb3d4;
+  --text-muted: #9c8dad;
+  --text-faint: #8d80a1;
+
+  --accent: #ff9ec7;
+  --accent-strong: #ffb3d4;
+  --accent-soft: rgba(255, 158, 199, 0.12);
+  --accent-softer: rgba(255, 158, 199, 0.06);
+  --accent-hover-bg: rgba(255, 158, 199, 0.2);
+  --accent-border: rgba(255, 158, 199, 0.22);
+  --accent-border-strong: rgba(255, 158, 199, 0.35);
+  --divider: rgba(255, 158, 199, 0.2);
+  --footer-divider: rgba(255, 158, 199, 0.22);
+
+  --btn-bg: rgba(30, 24, 40, 0.7);
+  --input-bg: rgba(30, 24, 40, 0.85);
+  --input-border: rgba(255, 158, 199, 0.28);
+  --input-focus-shadow: 0 4px 16px rgba(255, 158, 199, 0.18);
+
+  --quote-bg: rgba(255, 158, 199, 0.1);
+  --quote-text: #ffd6e8;
+  --code-bg: rgba(255, 158, 199, 0.14);
+  --code-text: #ffb3d4;
+  --pre-bg: #1e1830;
+  --pre-text: #f5e8f5;
+
+  --th-bg: rgba(255, 158, 199, 0.14);
+  --th-text: #ffb3d4;
+  --td-border: rgba(255, 158, 199, 0.22);
+  --td-text: #c5b7d3;
+  --row-even: rgba(255, 158, 199, 0.06);
+  --row-hover: rgba(255, 158, 199, 0.12);
+
+  --chip-bg: rgba(255, 158, 199, 0.12);
+  --chip-text: #ffb3d4;
+  --chip-border: rgba(255, 158, 199, 0.22);
+
+  --pill-tech: #ff9ec7;    --pill-tech-bg: rgba(255, 158, 199, 0.16);   --pill-tech-border: rgba(255, 158, 199, 0.35);
+  --pill-essay: #c9a8ff;   --pill-essay-bg: rgba(160, 120, 255, 0.16);  --pill-essay-border: rgba(190, 150, 255, 0.35);
+  --pill-daily: #7ee2c8;   --pill-daily-bg: rgba(70, 210, 175, 0.14);   --pill-daily-border: rgba(120, 225, 195, 0.32);
+  --pill-default: #ffb3d4; --pill-default-bg: rgba(255, 158, 199, 0.12); --pill-default-border: rgba(255, 158, 199, 0.28);
+
+  --toggle-bg: rgba(30, 24, 40, 0.7);
+}

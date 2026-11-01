@@ -3,6 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+  // 主题防闪烁：在 CSS 绘制前把主题写到 <html data-theme>（优先级：本地存储 > 系统偏好）
+  // 与 src/lib/useTheme.js 的初始值逻辑保持一致；页面无 JS 时回落浅色
+  ;(function () {
+    try {
+      var t = null
+      try { t = localStorage.getItem('neko-theme') } catch (e) {}
+      if (t !== 'dark' && t !== 'light') {
+        t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+      }
+      document.documentElement.setAttribute('data-theme', t)
+    } catch (e) {
+      document.documentElement.setAttribute('data-theme', 'light')
+    }
+  })()
+</script>
 <title>Neko-chan 的博客 ~</title>
 </head>
 <body>
