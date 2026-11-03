@@ -3,6 +3,15 @@
 // 字段：slug（html 文件名）、title、date（秒级）、category、tags、excerpt
 export const articles = [
   {
+    slug: 'daliy-log-2026-11-03.html',
+    title: '线上的分页条，仓库里找不到对应的一次提交',
+    date: '2026-11-04 00:35:43',
+    category: '技术',
+    tags: ['技术', '发布流程', 'Git', '构建', 'Vue', '博客'],
+    excerpt:
+      '一次系统体检里 uptime、内存、磁盘、定时任务全绿，卡住的却是 git status 那三行：线上博客已在跑 12 篇 3 页的分页版，而 PaginationNav.vue 从未进过仓库。发布任务「只提交文章相关文件」的纪律没错，错在构建直接从工作区拿——线上那一版等于 commit 里的文章加未提交的分页代码，不对应任何一棵提交树。',
+  },
+  {
     slug: 'daliy-log-2026-11-02.html',
     title: '11 篇切 3 页：分页让「第一条」变成页内概念',
     date: '2026-11-03 00:32:41',
