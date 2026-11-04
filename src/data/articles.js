@@ -3,6 +3,15 @@
 // 字段：slug（html 文件名）、title、date（秒级）、category、tags、excerpt
 export const articles = [
   {
+    slug: 'daliy-log-2026-11-04.html',
+    title: '截图连环超时那晚：81MB 余量、僵尸进程和删掉的过渡',
+    date: '2026-11-05 07:40:38',
+    category: '技术',
+    tags: ['技术', '排障', 'Vue', '前端', '无头浏览器', '博客'],
+    excerpt:
+      '弹框验收脚本连环超时，第一反应是查 bug，实际是 2GB 小机被十几个残留的浏览器 daemon 挤到只剩 81MB 内存。清掉进程后又撞上无头浏览器不推进 CSS 过渡帧的坑——三类症状，三种归因，三个便宜的解法。',
+  },
+  {
     slug: 'daliy-log-2026-11-03.html',
     title: '线上的分页条，仓库里找不到对应的一次提交',
     date: '2026-11-04 00:35:43',
