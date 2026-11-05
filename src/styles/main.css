@@ -90,6 +90,10 @@ blockquote, th, td, .list-status, .no-result, .footer {
   flex-direction: column;
   align-items: flex-end;
   gap: 10px;
+  /* 容器本身不吃触摸：收起状态的面板仍是 260px 宽的盒子，虽然 pointer-events:none，
+     但 aside 默认 auto 会连同它的空白区域一起盖住正文右半边的点击和横滑，
+     手机上表现为代码块/表格滑不动、右上角复制按钮点不到。 */
+  pointer-events: none;
 }
 .toc-btn {
   width: 48px;
@@ -108,6 +112,7 @@ blockquote, th, td, .list-status, .no-result, .footer {
   cursor: pointer;
   transition: transform .25s ease, background-color .3s ease, border-color .3s ease, box-shadow .25s ease;
   -webkit-tap-highlight-color: transparent;
+  pointer-events: auto; /* 容器已设为 none，按钮自己收回可点区域 */
 }
 .toc-btn:hover {
   transform: scale(1.08);
@@ -454,6 +459,7 @@ blockquote {
 }
 pre {
   background: var(--pre-bg);
+  overscroll-behavior-x: contain; /* 横滑到头别把页面手势交给浏览器（iOS 左缘返回） */
   color: var(--pre-text);
   border-radius: 12px;
   padding: 16px 20px;
@@ -474,7 +480,12 @@ pre code { background: none; color: inherit; padding: 0; }
 /* 长行必须由 code 自己撑开：block 的 code 默认只有 pre 的内容宽度，
    溢出的文字属于 ink overflow，不会增大 pre 的 scrollWidth，横向滚动永远不触发。
    width: max-content 让 code 的盒子等于最长一行，pre 才滚得动。 */
-pre > code { display: block; width: max-content; min-width: 100%; }
+pre > code {
+  display: block;
+  width: -webkit-max-content; /* 老 WebKit（iOS 9~11）不认无前缀的 max-content */
+  width: max-content;
+  min-width: 100%;
+}
 
 /* Markdown 表格：全边框 + 粉色表头 + 斑马纹 */
 table {
@@ -511,6 +522,7 @@ tbody tr:hover { background: var(--row-hover); }
   padding-bottom: 2px;
   border-radius: 10px;
   -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
   scrollbar-width: thin;
 }
 .table-scroll table { margin: 0; }
@@ -644,7 +656,7 @@ pre[data-lang]::before {
   code { font-size: 13px; padding: 1px 5px; }
   pre code { font-size: inherit; }
 
-  .copy-btn { top: 6px; right: 8px; width: 28px; height: 28px; }
+  .copy-btn { top: 6px; right: 8px; width: 32px; height: 32px; } /* 手指点得中，别再 28px */
 
   /* 表格：窄屏横向滚动 + 紧凑单元格 */
   th, td { padding: 8px 10px; }
@@ -905,6 +917,7 @@ pre[data-lang]::before {
   /* 目录变成右侧常驻卡片，跟随滚动 */
   .toc-nav {
     position: sticky;
+    pointer-events: auto; /* PC 常驻目录卡片：恢复整块可点 */
     top: 96px;          /* 主题切换按钮（top 18 + 48）下方留白 */
     right: auto;
     display: block;
