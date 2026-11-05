@@ -42,22 +42,56 @@ export function enhanceCodeBlocks() {
 }
 
 async function copyText(text) {
-  try {
-    await navigator.clipboard.writeText(text)
-    return true
-  } catch {
-    // http 站点没有安全上下文，clipboard API 不可用，退回 execCommand
+  // 1) 安全上下文（https / localhost）优先用异步剪贴板 API
+  if (navigator.clipboard && window.isSecureContext) {
     try {
-      const ta = document.createElement('textarea')
-      ta.value = text
-      ta.style.cssText = 'position:fixed;opacity:0;pointer-events:none'
-      document.body.appendChild(ta)
-      ta.select()
-      const ok = document.execCommand('copy')
-      document.body.removeChild(ta)
-      return ok
+      await navigator.clipboard.writeText(text)
+      return true
     } catch {
-      return false
+      /* 权限被拒或用户取消，继续走兜底 */
     }
+  }
+
+  // 2) textarea + execCommand：http 站点的常规兜底。
+  //    只 select() 不 focus() 在部分 WebKit 内核里选不中，必须补 setSelectionRange。
+  try {
+    const ta = document.createElement('textarea')
+    ta.value = text
+    ta.setAttribute('aria-hidden', 'true')
+    ta.style.cssText =
+      'position:fixed;top:0;left:0;width:1px;height:1px;padding:0;border:0;' +
+      'outline:none;box-shadow:none;background:transparent;opacity:0;'
+    document.body.appendChild(ta)
+    ta.focus()
+    ta.select()
+    ta.setSelectionRange(0, ta.value.length)
+    const ok = document.execCommand('copy')
+    document.body.removeChild(ta)
+    if (ok) return true
+  } catch {
+    /* 落到下一种方式 */
+  }
+
+  // 3) iOS Safari / 部分微信内核：textarea 的 select 不可靠，改用 contentEditable + Range
+  try {
+    const div = document.createElement('div')
+    div.contentEditable = 'true'
+    div.setAttribute('aria-hidden', 'true')
+    div.style.cssText =
+      'position:fixed;top:0;left:0;width:1px;height:1px;overflow:hidden;opacity:0;'
+    div.textContent = text
+    document.body.appendChild(div)
+    const range = document.createRange()
+    range.selectNodeContents(div)
+    const sel = window.getSelection()
+    sel.removeAllRanges()
+    sel.addRange(range)
+    div.focus()
+    const ok = document.execCommand('copy')
+    sel.removeAllRanges()
+    document.body.removeChild(div)
+    return ok
+  } catch {
+    return false
   }
 }

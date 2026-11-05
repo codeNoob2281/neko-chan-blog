@@ -471,10 +471,15 @@ code {
   font-family: "JetBrains Mono", Consolas, monospace;
 }
 pre code { background: none; color: inherit; padding: 0; }
+/* 长行必须由 code 自己撑开：block 的 code 默认只有 pre 的内容宽度，
+   溢出的文字属于 ink overflow，不会增大 pre 的 scrollWidth，横向滚动永远不触发。
+   width: max-content 让 code 的盒子等于最长一行，pre 才滚得动。 */
+pre > code { display: block; width: max-content; min-width: 100%; }
 
 /* Markdown 表格：全边框 + 粉色表头 + 斑马纹 */
 table {
-  width: 100%;
+  width: auto;
+  min-width: 100%;
   border-collapse: collapse;
   margin: 16px 0;
   font-size: 14.5px;
@@ -497,10 +502,32 @@ td {
 }
 tbody tr:nth-child(even) { background: var(--row-even); }
 tbody tr:hover { background: var(--row-hover); }
-/* 窄屏表格横向滚动，避免撑破卡片 */
+
+/* 表格滚动容器：renderMarkdown 给每个 <table> 包一层。
+   表格按内容撑开，超出卡片宽度就在容器内横向滚动，而不是把卡片撑破或把单元格挤成竖排。 */
+.table-scroll {
+  overflow-x: auto;
+  margin: 16px 0;
+  padding-bottom: 2px;
+  border-radius: 10px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+.table-scroll table { margin: 0; }
+
+/* 窄屏：表头/单元格不折行，横向滚动交给外层容器 */
 @media (max-width: 640px) {
-  table { display: block; overflow-x: auto; }
   th, td { white-space: nowrap; }
+}
+
+/* 代码块与表格的滚动条：默认太细看不见，给个能看见的把手 */
+pre { scrollbar-width: thin; }
+pre::-webkit-scrollbar,
+.table-scroll::-webkit-scrollbar { height: 8px; }
+pre::-webkit-scrollbar-thumb,
+.table-scroll::-webkit-scrollbar-thumb {
+  background: var(--divider);
+  border-radius: 4px;
 }
 
 /* 页脚 */

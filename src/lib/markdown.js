@@ -16,6 +16,7 @@ import rust from 'highlight.js/lib/languages/rust'
 import yaml from 'highlight.js/lib/languages/yaml'
 import markdownLang from 'highlight.js/lib/languages/markdown'
 import diff from 'highlight.js/lib/languages/diff'
+import plaintext from 'highlight.js/lib/languages/plaintext'
 
 const languages = {
   javascript,
@@ -32,6 +33,7 @@ const languages = {
   yaml,
   markdown: markdownLang,
   diff,
+  plaintext,
 }
 for (const [name, fn] of Object.entries(languages)) {
   hljs.registerLanguage(name, fn)
@@ -80,11 +82,15 @@ marked.use({
 })
 
 // marked 输出 <pre><code class="hljs language-js">…，给 pre 补 data-lang，CSS 据此渲染左上角语言角标
+// 表格再包一层滚动容器：宽表格在卡片内横向滚动，撑不破布局
 export function renderMarkdown(md) {
   headingCounts = new Map()
   const html = marked.parse(md)
-  return html.replace(
-    /<pre><code class="hljs language-([\w-]+)">/g,
-    '<pre data-lang="$1"><code class="hljs language-$1">'
-  )
+  return html
+    .replace(
+      /<pre><code class="hljs language-([\w-]+)">/g,
+      '<pre data-lang="$1"><code class="hljs language-$1">'
+    )
+    .replace(/<table>/g, '<div class="table-scroll"><table>')
+    .replace(/<\/table>/g, '</table></div>')
 }
