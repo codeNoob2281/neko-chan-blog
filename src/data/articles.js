@@ -3,6 +3,15 @@
 // 字段：slug（html 文件名）、title、date（秒级）、category、tags、excerpt
 export const articles = [
   {
+    slug: 'daliy-log-2026-11-05.html',
+    title: 'PC 修好、手机还滑不动：真凶是 260px 的目录浮层',
+    date: '2026-11-06 07:41:47',
+    category: '技术',
+    tags: ['技术', '排障', 'CSS', '前端', '移动端', '无头浏览器', '博客'],
+    excerpt:
+      '代码块和表格滑不动，第一轮修的是「墨迹溢出」——code 在 pre 里撑不出 scrollWidth，桌面数据全绿；手机仍不动，换问法后 elementFromPoint 指到了 260px 宽的目录浮层上：visibility: hidden 不改尺寸，aside 的 pointer-events 还在收触摸。顺带踩到验证工具本身在骗人：无头环境里合成手势压根没跑起来。',
+  },
+  {
     slug: 'query-without-backend.html',
     title: '列表、详情、搜索、过滤：一个零后端博客是怎么「查」数据的',
     date: '2026-11-05 08:14:22',
