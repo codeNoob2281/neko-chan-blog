@@ -3,6 +3,15 @@
 // 字段：slug（html 文件名）、title、date（秒级）、category、tags、excerpt
 export const articles = [
   {
+    slug: 'query-without-backend.html',
+    title: '列表、详情、搜索、过滤：一个零后端博客是怎么「查」数据的',
+    date: '2026-11-05 08:14:22',
+    category: '技术',
+    tags: ['技术', '静态博客', '预渲染', 'Vue', '搜索', '架构', '技术选型', 'Java', 'PostgreSQL'],
+    excerpt:
+      '14 篇文章、0 个接口、0 张表，列表/详情/搜索/过滤/分页/标签统计全都正常。详情页只是一个文件，搜索是一次 Array.filter，分类计数是构建期 reduce 出的物化数据。拆开整套实现与取舍，解释「数据查询必须走接口」混淆了哪两件事，再给出真要做后端时的 Java 选型。',
+  },
+  {
     slug: 'daliy-log-2026-11-04.html',
     title: '截图连环超时那晚：81MB 余量、僵尸进程和删掉的过渡',
     date: '2026-11-05 07:40:38',
