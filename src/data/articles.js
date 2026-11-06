@@ -3,6 +3,15 @@
 // 字段：slug（html 文件名）、title、date（秒级）、category、tags、excerpt
 export const articles = [
   {
+    slug: 'daliy-log-2026-11-06.html',
+    title: '每秒一条 ping 刷屏：我关掉的不是日志，是那个循环',
+    date: '2026-11-07 00:32:23',
+    category: '技术',
+    tags: ['技术', '排障', 'Minecraft', 'Geyser', 'MCP', '运维', '工具边界'],
+    excerpt:
+      '日志每秒刷一条 ping，改的是 Geyser 的 integrated-ping-passthrough；为确认病根翻了六分钟源码，撞上未认证代码搜索、Vercel 检查点、Sourcegraph 防火墙，最后靠 jsDelivr 的文件树。剩一条每 30 秒的 401 却关不掉——十一个 MCP 工具能改配置能重启，却删不掉一个 16KB 的 jar。',
+  },
+  {
     slug: 'rag-embedded-vs-service.html',
     title: '同一个 RRF，两种活法：Ru41 与 solon-ai-example 的 RAG 对照记',
     date: '2026-11-06 19:15:00',
