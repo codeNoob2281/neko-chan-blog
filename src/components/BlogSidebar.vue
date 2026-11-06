@@ -88,6 +88,11 @@ onBeforeUnmount(() => {
 
 <template>
   <aside class="sidebar">
+    <!-- 内层 sticky 载体：sticky 放在这层而不是 aside 上。
+         aside 作为 grid 项拉伸占满行高后，本层的 sticky 约束区 = aside 盒子，
+         滑动到行底就停——不会像直接 sticky 在 aside 上那样（Chromium 把
+         约束区算到整个 grid 容器）一路滑下去盖住页脚。 -->
+    <div class="sidebar-inner">
     <!-- 模块一：个人信息 -->
     <section class="side-card side-profile">
       <span class="side-avatar" aria-hidden="true">{{ profile.avatar }}</span>
@@ -148,6 +153,7 @@ onBeforeUnmount(() => {
         </a>
       </div>
     </section>
+    </div>
 
     <!-- 「更多 >>」弹框：全部分类 + 全部标签，点一项即筛选并收起（不加过渡动画，切换即时） -->
     <teleport to="body">

@@ -695,6 +695,8 @@ pre[data-lang]::before {
    卡片复用主题变量：--card-bg / --card-border / --card-shadow / --divider，
    徽章复用 .tag-chip 的 chip 变量，整体与文章卡片同语言。 */
 .sidebar { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+/* 卡片实际排在这一层（含三处 ≥1000px 布局的 sticky 载体，见布局段注释） */
+.sidebar-inner { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
 .side-card {
   background: var(--card-bg);
   border: 1.5px solid var(--card-border);
@@ -888,7 +890,12 @@ pre[data-lang]::before {
   }
   .container--side .blog-header, .container--side .footer,
   .container--article .footer { grid-column: 1 / -1; }
-  .container--side .sidebar { position: sticky; top: 24px; }
+/* sticky 放在内层 .sidebar-inner 而不是 grid 项 aside 上：aside 拉伸占满
+   所在行后，内层 sticky 的约束区是 aside 盒子（到页脚上一行为止）。
+   直接 sticky 在 aside 上时，Chromium 的约束区是整个 grid 容器（含页脚行），
+   侧栏比视口高就会一路滑下去盖住页脚。 */
+  .container--side .sidebar { align-self: stretch; }
+  .container--side .sidebar-inner { position: sticky; top: 24px; }
 }
 
 /* ============ 文章页布局 ============
@@ -902,7 +909,8 @@ pre[data-lang]::before {
     gap: 0 26px;
     align-items: start;
   }
-  .container--article .sidebar { position: sticky; top: 24px; }
+  .container--article .sidebar { align-self: stretch; }
+  .container--article .sidebar-inner { position: sticky; top: 24px; }
 }
 @media (min-width: 1200px) {
   .container--article {
@@ -912,7 +920,8 @@ pre[data-lang]::before {
     gap: 0 30px;
     align-items: start;
   }
-  .container--article .sidebar { position: sticky; top: 24px; }
+  .container--article .sidebar { align-self: stretch; }
+  .container--article .sidebar-inner { position: sticky; top: 24px; }
 
   /* 目录变成右侧常驻卡片，跟随滚动 */
   .toc-nav {
