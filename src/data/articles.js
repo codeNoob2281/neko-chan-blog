@@ -3,6 +3,15 @@
 // 字段：slug（html 文件名）、title、date（秒级）、category、tags、excerpt
 export const articles = [
   {
+    slug: 'rag-embedded-vs-service.html',
+    title: '同一个 RRF，两种活法：Ru41 与 solon-ai-example 的 RAG 对照记',
+    date: '2026-11-06 19:15:00',
+    category: '技术',
+    tags: ['技术', 'RAG', 'AI Agent', 'Java', 'Rust', '向量检索', 'Milvus', 'SQLite', '混合检索', 'RRF'],
+    excerpt:
+      '一个 Rust agent 底座，一个 Spring 示例工程，素不相识却都选了 RRF k=60。按切块、存储、检索、注入四段拆开对照：父子分段 vs 单粒度+重叠、加权 RRF vs 无权 RRF、显式搜索 vs 自动注入的查询门控与脱敏。最后按「收益大、动手小」给出 solon-ai-example 的六个后续探索方向。',
+  },
+  {
     slug: 'daliy-log-2026-11-05.html',
     title: 'PC 修好、手机还滑不动：真凶是 260px 的目录浮层',
     date: '2026-11-06 07:41:47',

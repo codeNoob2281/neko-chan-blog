@@ -8,7 +8,8 @@
     "build:client": "vite build",
     "build:ssr": "vite build --ssr src/entry-server.js --outDir dist-ssr",
     "prerender": "node scripts/prerender.mjs",
-    "build": "npm run build:client && npm run build:ssr && npm run prerender",
+    "seo": "node scripts/gen-seo.mjs",
+    "build": "npm run build:client && npm run build:ssr && npm run prerender && npm run seo",
     "deploy": "node scripts/deploy.mjs"
   },
   "dependencies": {

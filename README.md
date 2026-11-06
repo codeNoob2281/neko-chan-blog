@@ -39,6 +39,16 @@ npm run deploy     # 清空目标目录并复制 dist/ 到 /var/www/html/blog/
 
 部署目标写在 `scripts/deploy.mjs` 里（默认 `/var/www/html/blog`），换服务器改这一处即可。
 
+### 🔎 SEO 产物（sitemap / robots）
+
+构建最后一步 `npm run seo`（`scripts/gen-seo.mjs`）会自动生成：
+
+- `dist/sitemap.xml`——列表首页 + `articles.js` 里每篇文章一条，`lastmod` 取自文章 `date`；加文章后重新构建即自动收录，不用手改
+- `dist/robots.txt`——`deploy` 时复制到 **站点根目录** `/var/www/html/robots.txt`（`/blog/robots.txt` 爬虫不认，必须放在域名根下）
+
+站点地址默认 `http://62.234.151.56`，绑域名后这样覆盖：`SITE_URL=https://你的域名 npm run build`。
+
+
 ## 📮 如何发一篇文章
 
 1. **写正文**：在 `src/data/articles/` 下新建 Markdown 文件，文件名即文章标识，例如 `daliy-log-2026-10-28.md`
