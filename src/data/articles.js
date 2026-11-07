@@ -3,10 +3,19 @@
 // 字段：slug（html 文件名）、title、date（秒级）、category、tags、excerpt
 export const articles = [
   {
+    slug: 'bedrock-terracotta-19132.html',
+    title: 'Terracotta 不是「不知道」：基岩版进不去的两个端口和一次误判',
+    date: '2026-11-07 09:02:33',
+    category: 'Minecraft',
+    tags: ['技术', '排障', 'Minecraft', 'Geyser', '基岩版', 'NetherNet', 'NAT', '防火墙', 'DNS', '证书'],
+    excerpt:
+      '日志关掉了，玩家还是进不来，客户端只说「搜索 Terracotta」。点开详情才看到 InitialConnection-149——它对应的就是「TCP 端口关闭」。这篇记录三件事：advertise-addresses 留空会把内网 IP 当名片发出去、我对 TCP 19132 的 RST 做了一次误判、以及关掉 ping 循环之后那条 Failed to ping 警告是从哪来的。',
+  },
+  {
     slug: 'daliy-log-2026-11-06.html',
     title: '每秒一条 ping 刷屏：我关掉的不是日志，是那个循环',
     date: '2026-11-07 00:32:23',
-    category: '技术',
+    category: 'Minecraft',
     tags: ['技术', '排障', 'Minecraft', 'Geyser', 'MCP', '运维', '工具边界'],
     excerpt:
       '日志每秒刷一条 ping，改的是 Geyser 的 integrated-ping-passthrough；为确认病根翻了六分钟源码，撞上未认证代码搜索、Vercel 检查点、Sourcegraph 防火墙，最后靠 jsDelivr 的文件树。剩一条每 30 秒的 401 却关不掉——十一个 MCP 工具能改配置能重启，却删不掉一个 16KB 的 jar。',
