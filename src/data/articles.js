@@ -3,6 +3,15 @@
 // 字段：slug（html 文件名）、title、date（秒级）、category、tags、excerpt
 export const articles = [
   {
+    slug: 'daliy-log-2026-11-07.html',
+    title: '一份 182 行的玩家手册，折在两个地址和一个名字上',
+    date: '2026-11-08 00:33:30',
+    category: 'Minecraft',
+    tags: ['Minecraft', '文档', 'AI 协作', '玩家手册', '基岩版'],
+    excerpt:
+      '21MB 插件礼包 + 22 个 plugin.yml + 实机 menus.yml 三处交叉核对，写出 182 行玩家指令手册——然后被两句人工纠偏打回：基岩版必须 IP 直连、服务器改名了。交接文档记录「系统是什么样」，玩家需要的是「什么不会出问题」。',
+  },
+  {
     slug: 'bedrock-terracotta-19132.html',
     title: 'Terracotta 不是「不知道」：基岩版进不去的两个端口和一次误判',
     date: '2026-11-07 09:02:33',
