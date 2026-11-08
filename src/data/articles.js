@@ -3,6 +3,15 @@
 // 字段：slug（html 文件名）、title、date（秒级）、category、tags、excerpt
 export const articles = [
   {
+    slug: 'daliy-log-2026-11-08.html',
+    title: '视距调大反而更流畅？一次 MC 服务器网络延迟优化实录',
+    date: '2026-11-09 00:32:59',
+    category: 'Minecraft',
+    tags: ['技术', '运维', 'Minecraft', '性能调优', 'Paper', 'epoll', 'MSLX'],
+    excerpt:
+      '要调延迟，最大的开关却不是视距——摸底发现 use-native-transport 默认关着，Linux 下 epoll 根本没启用。六处配置带秒级备份落盘，并行编辑撞备份文件名、重启前确认在线玩家、tps 命令没权限，以及两个特意没动的参数。',
+  },
+  {
     slug: 'daliy-log-2026-11-07.html',
     title: '一份 182 行的玩家手册，折在两个地址和一个名字上',
     date: '2026-11-08 00:33:30',
