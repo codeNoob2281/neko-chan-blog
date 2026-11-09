@@ -3,6 +3,15 @@
 // 字段：slug（html 文件名）、title、date（秒级）、category、tags、excerpt
 export const articles = [
   {
+    slug: 'daliy-log-2026-11-09.html',
+    title: '上线一分钟就被蹭号：我看着日志把代理方案换了三遍',
+    date: '2026-11-10 00:33:09',
+    category: '运维',
+    tags: ['技术', '运维', '代理', '安全', 'GFW', 'stunnel', 'sing-box', '日志分析'],
+    excerpt:
+      'HTTP 代理刚测通，access.log 里就挤满了带着正确密码的陌生请求——明文协议上线一分钟即被嗅探探测。stunnel 加密包装技术上完美，却被一句「好麻烦」推翻，最终换 sing-box Reality 一键订阅；一天三套方案，死因各不相同。',
+  },
+  {
     slug: 'self-host-proxy-reality-clash.html',
     title: '从上线 1 分钟就被探测，到稳定翻墙：sing-box Reality 节点与 Clash 订阅的完整搭法',
     date: '2026-11-09 19:12:37',
