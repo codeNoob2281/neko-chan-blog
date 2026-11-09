@@ -3,6 +3,24 @@
 // 字段：slug（html 文件名）、title、date（秒级）、category、tags、excerpt
 export const articles = [
   {
+    slug: 'self-host-proxy-reality-clash.html',
+    title: '从上线 1 分钟就被探测，到稳定翻墙：sing-box Reality 节点与 Clash 订阅的完整搭法',
+    date: '2026-11-09 19:12:37',
+    category: '技术',
+    tags: ['技术', '教程', 'sing-box', 'VLESS', 'Reality', 'Hysteria2', 'Clash', '代理', '安全分析'],
+    excerpt:
+      '明文 SOCKS5 上线 1 分钟就被探测掐断，HTTP 代理 30 秒内收到带真账号的探测请求——明文协议在审查链路是裸奔的。改用 sing-box 双协议：Reality 借微软的 TLS 指纹抗主动探测、Hysteria2 走 QUIC 备用，加订阅链接实现多设备一键导入，含回环自测和两处 1.14 新格式坑。部署完再拆开链路重审「代理到底安全吗」：内容强加密、防探测，但加密不等于隐身——元数据看得见，服务器永远是中间人。',
+  },
+  {
+    slug: 'qqbot-group-allowlist.html',
+    title: '白名单写对了，群友还是哑的：Hermes 接 QQ 官方机器人的三层授权',
+    date: '2026-11-09 11:39:09',
+    category: '技术',
+    tags: ['技术', '教程', 'QQ机器人', 'Hermes', '白名单', '排障', '网关'],
+    excerpt:
+      '群开关开了、群也加白了，可群里只有主人能叫醒 bot。翻到 authz_mixin 才明白：QQ_ALLOWED_USERS 不是「私聊白名单」，是平台级发送者白名单——它一旦存在，群消息也要逐个比对。解法是一行 QQ_GROUP_ALLOWED_USERS，判定顺序排在发送者校验之前。末尾补充群聊会话隔离机制：日志、会话库、源码三处证据，以及 group_sessions_per_user 开关。',
+  },
+  {
     slug: 'daliy-log-2026-11-08.html',
     title: '视距调大反而更流畅？一次 MC 服务器网络延迟优化实录',
     date: '2026-11-09 00:32:59',
