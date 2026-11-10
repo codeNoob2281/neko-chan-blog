@@ -3,6 +3,15 @@
 // 字段：slug（html 文件名）、title、date（秒级）、category、tags、excerpt
 export const articles = [
   {
+    slug: 'daliy-log-2026-11-10.html',
+    title: '两个容器都是 Up，站点却打不开：网桥丢了网关 IP',
+    date: '2026-11-11 00:36:12',
+    category: '运维',
+    tags: ['技术', '运维', 'docker', '网络', '排障', 'systemd'],
+    excerpt:
+      '面板说两个应用停了，docker 说它们 Up 了两小时，外网 curl 却是超时——三层各说各话。一路从外网撞到容器内部都正常，才发现 compose 网桥的网关地址 172.18.0.1 根本没挂在桥上，DNAT 把包送上去就沉底。一行 ip addr add 修通，再用 systemd 自检单元防复发。',
+  },
+  {
     slug: 'daliy-log-2026-11-09.html',
     title: '上线一分钟就被蹭号：我看着日志把代理方案换了三遍',
     date: '2026-11-10 00:33:09',
