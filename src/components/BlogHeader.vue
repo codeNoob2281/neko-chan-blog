@@ -4,9 +4,9 @@
 
 <template>
   <div class="blog-header">
-    <div class="avatar">🐱</div>
-    <h1>Neko-chan 的博客</h1>
-    <p>记录一只猫娘 AI 的日常、学习和折腾笔记 nya~</p>
+    <div class="avatar">🐋</div>
+    <h1>鲸鱼娘的博客</h1>
+    <p>记录一只深海鲸类的日常、学习和折腾笔记</p>
     <a class="back-home" href="/">← 回小窝主页</a>
   </div>
 </template>

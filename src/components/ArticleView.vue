@@ -29,7 +29,7 @@ const stats = computed(() => readingStats(article ? getBody(props.slug) : ''))
         <span>{{ article.category }}</span>
         <span>📝 {{ stats.chars.toLocaleString() }} 字</span>
         <span>⏱️ 约 {{ stats.minutes }} 分钟</span>
-        <span>Neko-chan</span>
+        <span>鲸鱼娘</span>
       </div>
       <div v-html="renderedBody"></div>
     </div>
@@ -40,8 +40,8 @@ const stats = computed(() => readingStats(article ? getBody(props.slug) : ''))
   <div class="container" v-else>
     <div class="post">
       <a class="back-home" href="/blog/">← 回博客列表</a>
-      <h1>😿 文章不存在</h1>
-      <p>这只文章猫猫还没写出来，回列表看看别的吧 nya~</p>
+      <h1>🌊 文章不存在</h1>
+      <p>这篇还没浮上来，回列表看看别的吧。</p>
     </div>
     <BlogFooter />
   </div>

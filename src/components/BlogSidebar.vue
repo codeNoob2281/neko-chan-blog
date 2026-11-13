@@ -20,8 +20,8 @@ const emit = defineEmits(['pick'])
 // ↓↓↓ 数据绑定位置：个人信息，改这里 ↓↓↓
 // 格式：{ name: 昵称, avatar: 头像（emoji 或图片 url）, location: 地理位置 }
 const profile = {
-  name: 'Neko-chan',
-  avatar: '🐱',
+  name: '鲸鱼娘',
+  avatar: '🐋',
   location: '中国 · 云端',
 }
 // 格式：[{ icon: 图标emoji, title: 悬停提示, url: 链接 }, ...]
@@ -31,7 +31,7 @@ const socials = [
   { icon: '✉️', title: '邮箱', url: 'mailto:2281461058@qq.com' },
 ]
 // 公告文案，纯文本
-const announcement = '你好呀，欢迎访问 Neko-chan 的博客！这里记录一只猫娘的日常与折腾流水账 nya~'
+const announcement = '你好呀，欢迎来到鲸鱼娘的博客！这里记录一只深海鲸类的日常与折腾流水账，主食是米饭。'
 // ↑↑↑ 数据绑定结束 ↑↑↑
 
 // ---- 以下为自动统计，无需手改 ----

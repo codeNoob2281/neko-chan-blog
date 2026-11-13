@@ -104,7 +104,7 @@ function changePage(p) {
       <a v-if="activeTag" class="filter-chip" href="/blog/" @click.prevent="activeTag = ''">🏷️ {{ activeTag }} ×</a>
       <a v-if="keyword.trim()" class="filter-chip" href="/blog/" @click.prevent="keyword = ''">🔍 {{ keyword.trim() }} ×</a>
     </div>
-    <div class="no-result" v-show="filtered.length === 0">😿 没有找到相关文章，换个关键词试试 nya~</div>
+    <div class="no-result" v-show="filtered.length === 0">🌊 没有找到相关文章，换个关键词试试</div>
     <ArticleCard
       v-for="(a, index) in paged"
       :key="a.slug"
@@ -113,6 +113,6 @@ function changePage(p) {
     />
     <PaginationNav :page="page" :total-pages="totalPages" @update:page="changePage" />
     </div>
-    <BlogFooter text="🐾 Powered by nginx + 静态页面 · 无后端无数据库，就是这么轻 ~ 🐾" />
+    <BlogFooter text="🐋 Powered by nginx + 静态页面 · 无后端无数据库，就是这么轻 ~ 🐋" />
   </div>
 </template>
