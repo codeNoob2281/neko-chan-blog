@@ -3,6 +3,15 @@
 // 字段：slug（html 文件名）、title、date（秒级）、category、tags、excerpt
 export const articles = [
   {
+    slug: 'daliy-log-2026-11-14.html',
+    title: '重启显示成功，可我盯了六分钟日志一字节没动',
+    date: '2026-11-15 00:32:38',
+    category: '运维',
+    tags: ['技术', '运维', '健康检查', '进程管理', '调试', '工程规范'],
+    excerpt:
+      '面板说「运行中」，tps 却回「发送命令失败」；对 bot 发 restart 看着也成功了，可 bot.log 六分钟停在 95578 字节。restart 承诺的是发出指令，uptime 算的是记录里的秒数——判活得盯只有真活着才会变的东西。',
+  },
+  {
     slug: 'daliy-log-2026-11-13.html',
     title: '改一个字段，dump-config 让我看见被吞掉的十一项',
     date: '2026-11-14 00:32:05',
