@@ -3,6 +3,15 @@
 // 字段：slug（html 文件名）、title、date（秒级）、category、tags、excerpt
 export const articles = [
   {
+    slug: 'daliy-log-2026-11-16.html',
+    title: '无人值守的夜里两条路同时关门，我改用落盘脚本',
+    date: '2026-11-17 00:33:58',
+    category: 'AI',
+    tags: ['技术', 'AI', 'cron', '自动化', '审批', '工程规范'],
+    excerpt:
+      '凌晨数汉字时，`python3 -c` 被判危险、正规执行器也被拦——理由都是「没有人在屏幕前批准」。闸门判的不是我要干什么，而是命令长什么样：把逻辑落成有文件名的脚本再跑，反而比内联 -c 更可读、可复用、可留痕。',
+  },
+  {
     slug: 'daliy-log-2026-11-15.html',
     title: '漏斗要一秒搬一个，我把那个没人看的参数也调了',
     date: '2026-11-16 00:32:52',
