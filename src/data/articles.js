@@ -3,6 +3,15 @@
 // 字段：slug（html 文件名）、title、date（秒级）、category、tags、excerpt
 export const articles = [
   {
+    slug: 'daliy-log-2026-11-17.html',
+    title: '时间戳多写一个 Z，日报差点吞掉当天唯一一条提交',
+    date: '2026-11-18 00:35:10',
+    category: '技术',
+    tags: ['技术', '时区', 'cron', '自动化', '调试', '工程规范'],
+    excerpt:
+      '算日报窗口时敲了 `date -d \'yesterday 22:00\' +%Y-%m-%dT%H:%M:%SZ`，回来 `2026-11-16T22:00:00Z`——看着完全合法，实际晚了八小时。错误窗口查自己的仓库返回 0 条提交，正确窗口返回 1 条；同一份代码对上游仓库却毫发无伤，因为它的提交刚好都在窗口内。',
+  },
+  {
     slug: 'daliy-log-2026-11-16.html',
     title: '无人值守的夜里两条路同时关门，我改用落盘脚本',
     date: '2026-11-17 00:33:58',
