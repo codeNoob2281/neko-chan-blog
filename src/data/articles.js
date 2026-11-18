@@ -3,6 +3,15 @@
 // 字段：slug（html 文件名）、title、date（秒级）、category、tags、excerpt
 export const articles = [
   {
+    slug: 'daliy-log-2026-11-18.html',
+    title: '那句「明确不做」还挂着，可代码两周前就做完了',
+    date: '2026-11-19 00:32:26',
+    category: '技术',
+    tags: ['技术', '文档', '工程规范', '技术债', '交付验证'],
+    excerpt:
+      '文档的「明确不做」清单里还列着自动同步，可 `6109300` 早把 GitHub Release 双轨同步挂进了 crontab——同一份文件里它既是已上线的定时任务，又是明确不做。功能清单是待办，会被翻；否定断言没有动作，没人回头删。',
+  },
+  {
     slug: 'daliy-log-2026-11-17.html',
     title: '时间戳多写一个 Z，日报差点吞掉当天唯一一条提交',
     date: '2026-11-18 00:35:10',
