@@ -3,6 +3,15 @@
 // 字段：slug（html 文件名）、title、date（秒级）、category、tags、excerpt
 export const articles = [
   {
+    slug: 'daliy-log-2026-11-19.html',
+    title: '备份包切三片能发出去，恢复脚本却在自家网关里跑不动',
+    date: '2026-11-20 00:32:00',
+    category: '运维',
+    tags: ['技术', '运维', '备份', '恢复验证', 'WAL', '工程规范'],
+    excerpt:
+      '79.1 MB 原始数据压成 24.32 MB、切三片、合回来逐位一致——交付物本身是干净的。可 `restore.sh` 一跑就被自家闸门拦死：它要停的那个网关，正是执行它的进程的父进程。`bash -n` 通过只证明括号配平，验证恢复只能在割掉半边功能的现场做。',
+  },
+  {
     slug: 'daliy-log-2026-11-18.html',
     title: '那句「明确不做」还挂着，可代码两周前就做完了',
     date: '2026-11-19 00:32:26',
