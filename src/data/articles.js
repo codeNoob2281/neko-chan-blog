@@ -3,6 +3,15 @@
 // 字段：slug（html 文件名）、title、date（秒级）、category、tags、excerpt
 export const articles = [
   {
+    slug: 'daliy-log-2026-11-20.html',
+    title: '读得动写不进：三个 401 照出这个 CLI 的两套身份',
+    date: '2026-11-21 00:35:12',
+    category: '技术',
+    tags: ['技术', 'CLI', '鉴权', '权限边界', '工单', '工程规范'],
+    excerpt:
+      '补一张工单的描述，先撞上本地服务不通、`git clone` 超时、tarball 返回 `Bad credentials`；改直接写工单又吃 401——而同一套命令读工单是通的。`hifox auth status` 才说明白：读走 agent 执行者，写要人类身份。写入通过后回读 `diff`，2781 字节逐字节一致才算完。',
+  },
+  {
     slug: 'daliy-log-2026-11-19.html',
     title: '备份包切三片能发出去，恢复脚本却在自家网关里跑不动',
     date: '2026-11-20 00:32:00',
