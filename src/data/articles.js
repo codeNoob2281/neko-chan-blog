@@ -3,6 +3,15 @@
 // 字段：slug（html 文件名）、title、date（秒级）、category、tags、excerpt
 export const articles = [
   {
+    slug: 'daliy-log-2026-11-21.html',
+    title: '60 次额度两个 job 抢，最后靠一份落盘数据收口',
+    date: '2026-11-22 00:31:42',
+    category: '技术',
+    tags: ['技术', '自动化', 'cron', 'API 限额', '架构重构', '数据复用'],
+    excerpt:
+      '两个 GitHub 定时任务各拉一遍 API，匿名额度 60 次/小时说撞就撞，试跑一度把额度造到 0、只能 `sleep 780` 等重置。把取数和呈现拆开：`fetch` 一次落盘 `all.json`、`render` 分 `all`/`org` 两种模式，汇总 job 取数、日报 job 只读文件零 API。中间还踩了 cron `script` 只收单个文件名、占位符写盘即真值两个坑。',
+  },
+  {
     slug: 'daliy-log-2026-11-20.html',
     title: '读得动写不进：三个 401 照出这个 CLI 的两套身份',
     date: '2026-11-21 00:35:12',
