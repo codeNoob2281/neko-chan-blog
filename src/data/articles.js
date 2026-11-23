@@ -3,6 +3,15 @@
 // 字段：slug（html 文件名）、title、date（秒级）、category、tags、excerpt
 export const articles = [
   {
+    slug: 'daliy-log-2026-11-23.html',
+    title: '报告说 42 次全 403，复跑全 200 我才看见真问题',
+    date: '2026-11-24 00:36:17',
+    category: '运维',
+    tags: ['技术', '运维', 'WAF', 'SPA', '验收标准', '调试'],
+    excerpt:
+      '一份标着「阻断级」的报告说 14 种 UA、42 次请求全 403，我按它自己第 7 条先复跑——全 200，WAF 总开关还是 off，bingbot 一直在正常抓。报告错在把过期快照写成现状，还拿「curl 源码里读到正文」去验一个 Vue SPA。真正的问题藏在没报错的地方：robots.txt 和 sitemap.xml 被 SPA fallback 吞成了 index.html。'
+  },
+  {
     slug: 'daliy-log-2026-11-21.html',
     title: '60 次额度两个 job 抢，最后靠一份落盘数据收口',
     date: '2026-11-22 00:31:42',
