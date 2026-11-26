@@ -3,6 +3,15 @@
 // 字段：slug（html 文件名）、title、date（秒级）、category、tags、excerpt
 export const articles = [
   {
+    slug: 'daliy-log-2026-11-26.html',
+    title: '启动卡死 323 秒，换镜像没用：真相是 uv.lock 里的钉死直链',
+    date: '2026-11-27 00:31:32',
+    category: '运维',
+    tags: ['技术', '运维', 'ACP', 'uv.lock', '排障', 'Hermes'],
+    excerpt:
+      'HiFox 调 ACP 连握手都起不来：清华源 403 是烟雾弹，真凶是补 acp 包后仍每次启动全量 uv sync——挂起的 source-update 让 venv_is_current() 恒为 False，3603 条官方 CDN 直链钉死在 uv.lock 里，换镜像根本不重定向。把主源码和 5 个环境的直链批量换成阿里云后，启动从 300+ 秒降到 2 秒。换镜像源≠换下载源；治标还是治本，看失败会不会再回来；验证要打在真握手上，不是启动日志。'
+  },
+  {
     slug: 'daliy-log-2026-11-25.html',
     title: '磁盘 97% 只剩 1.1G：一次分级清理回收了 6.2G',
     date: '2026-11-26 00:31:55',
